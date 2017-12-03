@@ -1,0 +1,49 @@
+page-accounts {
+  text-align: center;
+
+    .account-content {
+
+      ion-card-header {
+        font-size: 1.5em;
+      }
+
+      ion-grid {
+          margin-top: 2em;
+      }
+      ion-col.left {
+          text-align: left;
+      }
+      ion-col.middle {
+          text-align: center;
+          color: color($colors, secondary);
+      }
+
+      ion-col.content {
+          text-align: right;
+          color: color($colors, primary);
+          font-weight: 900;
+      }
+      span.amount {
+          font-size: 4em;
+          color: color($colors, primary);
+      }
+      ion-col {
+          text-align: center;
+          font-size: .8em !important;
+      }
+      button {
+          margin-top: 1em;
+      }
+
+      ion-card-header {
+          color: color($colors, primary);
+      }
+      ion-card{
+          ion-list{
+              ion-item {
+                  border-bottom: .5px dashed color($colors, primary) !important;
+              }
+          }
+      }
+  }
+}

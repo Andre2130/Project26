@@ -1,0 +1,29 @@
+<ion-split-pane>
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+          <ion-title>Menus</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <ion-list>
+        <ion-list-header>
+            Accounts
+        </ion-list-header>
+        <button ion-item menuClose *ngFor="let p of pages" (click)="openPage(p)">
+          <ion-icon item-left [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
+      </ion-list>
+    </ion-content>
+
+    <ion-footer>
+      <button ion-item menuClose (click)="logout()">
+        <ion-icon item-left name="log-out" color="secondary"></ion-icon>
+        Logout
+      </button>
+    </ion-footer>
+  </ion-menu>
+</ion-split-pane>
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,11 @@
+page-about {
+  text-align: center;
+  .about-content {
+    ion-card {
+      padding: 1em;
+      text-align: left;
+      // color: color($colors, light);
+      font-size: 1.5rem;
+    }
+  }
+}

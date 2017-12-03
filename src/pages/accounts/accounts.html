@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar color="primary" no-border-bottom hideBackButton>
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Accounts</ion-title>
+    </ion-navbar>
+  <ion-toolbar no-border-top>
+      <ion-searchbar [(ngModel)]="queryText" (ionInput)="searchTransactions()" placeholder='Search Transactions'></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="account-content">
+  <ion-card>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <span class="amount">{{amount | currency:currencyCode:'true':'1.2-2' }}</span>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                Avalable Balance
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <button ion-button (click)="onclick()">Send Money</button>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+       Pending Transactions
+    </ion-card-header>
+    <ion-list>
+        <ion-item-group>
+            <div *ngFor="let transaction of pending; let j = index">
+                <ion-item>
+                    <ion-row>
+                        <ion-col width-33 class="left">
+                            {{transaction.date | date:'dd/MM/yyyy'}}
+                        </ion-col>
+                        <ion-col width-33 class="middle">
+                            {{transaction.type}}
+                        </ion-col>
+                        <ion-col width-33 class="content">
+                            {{transaction.amount | currency:currencyCode:'true':'1.2-2'}}
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+            </div>
+            <ion-item>
+                <div *ngIf="pending.length == 0">No Pending Transactions</div>
+            </ion-item>
+        </ion-item-group>
+    </ion-list>
+</ion-card>
+<ion-card>
+  <ion-card-header>
+      Posted Transactions
+  </ion-card-header>
+  <ion-list>
+      <ion-item-group>
+          <div *ngFor="let transaction of posted; let k = index">
+              <ion-item>
+                  <ion-row>
+                      <ion-col width-33 class="left">
+                          {{transaction.date | date:'dd/MM/yyyy'}}
+                      </ion-col>
+                      <ion-col width-33 class="middle">
+                          {{transaction.type}}
+                      </ion-col>
+                      <ion-col width-33 class="content">
+                          {{transaction.amount | currency:currencyCode:'true':'1.2-2'}}
+                      </ion-col>
+                  </ion-row>
+              </ion-item>
+          </div>
+          <ion-item>
+              <div *ngIf="posted.length == 0">No Posted Transactions</div>
+          </ion-item>
+      </ion-item-group>
+  </ion-list>
+</ion-card>
+</ion-content>
